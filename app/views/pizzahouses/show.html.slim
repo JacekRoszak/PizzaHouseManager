@@ -1,0 +1,35 @@
+.text-center.mt-5.menu.mx-auto
+
+  br/
+  h3
+    | Restauracja: 
+    strong 
+      | "#{@pizzahouse.name}"
+
+
+  h4.mt-4.mb-3.underline 
+    | Menu:
+  - @pizzahouse.menu.pizzas.each do | pizza |
+    h5.mb-0 
+      strong 
+        | "#{pizza.name}" - 
+      | #{pizza.price} zł
+    p.p-0 
+      | #{pizza.recipe}
+
+
+
+
+  p style="margin: 40px 0 0 0;"
+    strong Adres:  
+    = @pizzahouse.adress
+  p style="margin: 0;"
+    strong Godziny otwarcia:  
+    = @pizzahouse.workinghoures
+
+
+  = link_to 'Powrót', root_path, class: "btn btn-success mt-3"
+  - if current_user
+    - if current_user.admin
+      = link_to 'Edytuj restaurację', edit_pizzahouse_path(@pizzahouse), class: "btn btn-danger mt-3"
+      = link_to 'Edytuj menu', assigments_path(menu_id: @pizzahouse.menu.id), class: "btn btn-danger mt-3"

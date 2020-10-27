@@ -1,0 +1,22 @@
+= form_for @pizzahouse do |f|
+  - if @pizzahouse.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@pizzahouse.errors.count, "error")} prohibited this pizzahouse from being saved:"
+      ul
+        - @pizzahouse.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :adress
+    = f.text_field :adress
+  .field
+    = f.label :workinghoures
+    = f.text_field :workinghoures
+  .field
+    = f.label :menu_id
+    = f.number_field :menu_id
+  .actions 
+    = f.submit "Zapisz", class: "btn btn-danger"

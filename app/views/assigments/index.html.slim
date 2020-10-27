@@ -1,0 +1,14 @@
+.text-center.mt-5
+  h3.mb-4 Edycja menu w restauracji "#{@assigments.first.pizzahouse.name}"
+
+  table.mx-auto
+    tbody
+      - @assigments.each do |assigment|
+        tr
+          td 
+            h4 = assigment.pizza.name
+          td = link_to 'Usuń', assigment_path(id: assigment.id, menu_id: assigment.menu.id), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+
+  br
+
+  = link_to 'Dodaj pizzę', new_assigment_path(menu_id: @assigments.first.menu.id), class: "btn btn-success"

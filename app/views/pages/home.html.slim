@@ -1,0 +1,17 @@
+.container.text-center.mt-5
+    h3 Gdzie nas znajdziesz:
+        
+    br/
+    - @pizzahouses.each do |pizzahouse|
+        = link_to pizzahouse do
+            h6.m-1.pizzahouselink.mx-auto
+                .d-inline-block.p-3    
+                    strong "#{pizzahouse.name}" 
+                .d-inline-block.p-3
+                    |  adres: #{pizzahouse.adress}
+                .d-inline-block.p-3    
+                    | czynne: #{pizzahouse.workinghoures}
+                br/
+    br/
+    - unless current_user
+        = link_to "Zaloguj się", new_user_session_path, class: "btn btn-danger ml-4", style: "color: white;"

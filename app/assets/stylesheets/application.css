@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .pizzahouselink{
+     text-align: center;
+     color: black;
+     background-color: rgb(250, 250, 250);
+     border-radius: 15px 15px;
+     width: fit-content;
+
+ }
+
+ .pizzahouselink:hover{
+     background-color: rgb(230, 230, 230);;
+ }
+
+ .btn{
+     color: white !important;
+     margin: 5px;
+ }
+
+ .menu{
+    width: fit-content;
+    border: solid 1px rgb(230, 230, 230);
+    padding: 10px 40px 20px 40px;
+    border-radius: 10px 10px;
+ }
+
+ .underline{
+     text-decoration: underline;
+ }
