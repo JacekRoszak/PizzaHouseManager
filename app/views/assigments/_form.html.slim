@@ -10,4 +10,5 @@
         h4 
           strong "#{@assigment.menu.pizzahouse.name}"
     .actions 
-      = f.submit "Zapisz", class: "btn btn-danger"
+      = f.submit "Dodaj", class: "btn btn-danger"
+      = link_to "Nowy przepis", new_pizza_path(menu_id: @menu), class: "btn btn-success"

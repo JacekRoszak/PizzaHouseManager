@@ -1,18 +1,13 @@
 = form_for @pizza do |f|
-  - if @pizza.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@pizza.errors.count, "error")} prohibited this pizza from being saved:"
-      ul
-        - @pizza.errors.full_messages.each do |message|
-          li = message
-
+  = f.hidden_field :menu_id, value: @menu
   .field
-    = f.label :name
+    = f.label "Nazwa"
     = f.text_field :name
   .field
-    = f.label :price
+    = f.label "Cena"
     = f.number_field :price
   .field
-    = f.label :recipe
+    = f.label "Przepis"
     = f.text_field :recipe
-  .actions = f.submit
+  .actions 
+    = f.submit "Zapisz", class: "btn btn-danger"

@@ -4,6 +4,4 @@ class Pizza < ApplicationRecord
 
     delegate :pizzahouse, to: :menu
 
-    validates :name, :uniqueness =>  true
-
 end
