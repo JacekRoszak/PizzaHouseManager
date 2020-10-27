@@ -7,16 +7,16 @@
           li = message
 
   .field
-    = f.label :name
+    = f.label "Nazwa"
     = f.text_field :name
   .field
-    = f.label :adress
+    = f.label "Adres"
     = f.text_field :adress
   .field
-    = f.label :workinghoures
+    = f.label "Godziny otwarcia"
     = f.text_field :workinghoures
   .field
     = f.label :menu_id
-    = f.number_field :menu_id
+    = f.select :menu_id, Menu.all.map { |m| m.id }
   .actions 
     = f.submit "Zapisz", class: "btn btn-danger"

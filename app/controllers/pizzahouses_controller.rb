@@ -34,8 +34,9 @@ class PizzahousesController < ApplicationController
   end
 
   def destroy
+    @pizzahouse.menu.pizzahouse_id = nil
     @pizzahouse.destroy
-    edirect_to pizzahouses_url
+    redirect_to root_path
   end
 
   private

@@ -4,9 +4,11 @@ class AssigmentsController < ApplicationController
   def index
     if params[:menu_id]
       @assigments = Menu.find(params[:menu_id]).assigments.all
+      @menu = Menu.find(params[:menu_id])
     else
       @assigments = Assigment.all
     end
+    
   end
 
   def show
@@ -15,8 +17,8 @@ class AssigmentsController < ApplicationController
   def new
     @assigment = Assigment.new
     @assigment.menu_id = params[:menu_id]
-    @assigment.save
     @pizzas = Pizza.all.map { |o| [o.name, o.id] }
+    @menu = params[:menu_id]
   end
 
   def edit
@@ -26,7 +28,7 @@ class AssigmentsController < ApplicationController
     @assigment = Assigment.new(assigment_params)
 
     if @assigment.save
-      redirect_to menu_path(id: @assigment.menu.id)
+      redirect_to assigments_url(menu_id: @assigment.menu_id)
     else
       render :new 
     end

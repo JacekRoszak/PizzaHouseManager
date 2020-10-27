@@ -3,6 +3,7 @@
 
     == render 'form'
 
+    = link_to 'Usuń restaurację', @pizzahouse, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
     => link_to 'Powrót', @pizzahouse, class: "btn btn-success"
     
     =< link_to 'Strona główna', root_path, class: "btn btn-success"

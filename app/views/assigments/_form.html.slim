@@ -1,12 +1,13 @@
 .text-center
   = form_for @assigment do |f|
-
     .field
+      = f.hidden_field :menu_id, value: @menu    
       = f.label :pizza_id
       = f.select :pizza_id, @pizzas
     .field
-      = f.label "Menu dla:"
-      h4 
-        strong "#{Menu.find(@assigment.menu_id).pizzahouse.name}"
+      - if @assigment.menu.pizzahouse
+        = f.label "Menu dla:"
+        h4 
+          strong "#{@assigment.menu.pizzahouse.name}"
     .actions 
       = f.submit "Zapisz", class: "btn btn-danger"

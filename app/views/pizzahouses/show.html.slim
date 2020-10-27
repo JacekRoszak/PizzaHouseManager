@@ -1,4 +1,8 @@
 .text-center.mt-5.menu.mx-auto
+  - if current_user
+    - if current_user.admin
+      = link_to 'Edytuj restaurację', edit_pizzahouse_path(@pizzahouse), class: "btn btn-danger mt-3"
+      = link_to 'Edytuj menu', assigments_path(menu_id: @pizzahouse.menu.id), class: "btn btn-danger mt-3"
 
   br/
   h3
@@ -29,7 +33,3 @@
 
 
   = link_to 'Powrót', root_path, class: "btn btn-success mt-3"
-  - if current_user
-    - if current_user.admin
-      = link_to 'Edytuj restaurację', edit_pizzahouse_path(@pizzahouse), class: "btn btn-danger mt-3"
-      = link_to 'Edytuj menu', assigments_path(menu_id: @pizzahouse.menu.id), class: "btn btn-danger mt-3"
