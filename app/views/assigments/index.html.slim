@@ -1,17 +1,19 @@
 .text-center.mt-5
-  h3.mb-4.underline
-    | Menu #{@menu.name}
+  h3.underline
+    | Menu #{@menu&.name}
+  = link_to t('edit_name'), edit_menu_path(@menu), class: "btn btn-danger mb-3"
 
   table.mx-auto
     tbody
-      - @assigments.each do |assigment|
+      - @assigments.each_with_index do |assigment,index|
         tr
           td 
+            h4 #{index+1}.
+          td.text-left 
             h4 = assigment.pizza.name
-          td = link_to 'Usuń', assigment_path(menu_id: @menu.id, :id => assigment.id), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-warning"
+          td = link_to t('destroy'), assigment_path(menu_id: @menu.id, :id => assigment.id), data: { confirm: t('confirmation') }, method: :delete, class: "btn btn-warning"
 
   br
-
-  = link_to 'Powrót', root_path, class: "btn btn-danger"
-  = link_to 'Dodaj pizzę', new_assigment_path(menu_id: @menu.id), class: "btn btn-success"
-  = link_to 'Usuń', @menu, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-warning"
+  = link_to t('back'), root_path, class: "btn btn-success"
+  = link_to t('pizzas_list'), pizzas_path(menu_id: @menu.id), class: "btn btn-danger"
+  = link_to t('destroy'), @menu, data: { confirm: t('confirmation') }, method: :delete, class: "btn btn-warning"

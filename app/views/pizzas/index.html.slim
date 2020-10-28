@@ -1,25 +1,22 @@
-h1 Listing pizzas
+.text-center.mt-5
+  h1 #{t('pizza_list')}
 
-table
-  thead
-    tr
-      th Name
-      th Price
-      th Recipe
-      th
-      th
-      th
+  table.mx-auto
+    tbody
+      - @pizzas.each do |pizza|
+        tr
+          td 
+            h5
+              strong "#{pizza.name}" 
+          td 
+            h5 = pizza.recipe
+          td 
+            h5 #{pizza.price} #{t('currency')}
+          td = link_to t('edit'), edit_pizza_path(pizza), class: "btn btn-danger"
+          td = link_to t('destroy'), pizza, data: { confirm: t('confirmation') }, method: :delete, class: "btn btn-warning"
 
-  tbody
-    - @pizzas.each do |pizza|
-      tr
-        td = pizza.name
-        td = pizza.price
-        td = pizza.recipe
-        td = link_to 'Show', pizza
-        td = link_to 'Edit', edit_pizza_path(pizza)
-        td = link_to 'Destroy', pizza, data: { confirm: 'Are you sure?' }, method: :delete
 
-br
+  br
 
-= link_to 'New Pizza', new_pizza_path
+  = link_to t('back'), menus_path, class: "btn btn-success"
+  = link_to t('new_pizza'), new_pizza_path, class: "btn btn-danger"

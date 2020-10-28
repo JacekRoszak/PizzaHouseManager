@@ -1,22 +1,19 @@
 = form_for @pizzahouse do |f|
   - if @pizzahouse.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@pizzahouse.errors.count, "error")} prohibited this pizzahouse from being saved:"
-      ul
-        - @pizzahouse.errors.full_messages.each do |message|
-          li = message
-
+      h2.text-danger = t('error_message')
   .field
-    p.mb-0.mt-2 Nazwa
+    p.mb-0.mt-2 #{t('name')}
     = f.text_field :name
   .field
-    p.mb-0.mt-2 Adres
+    p.mb-0.mt-2 #{t('Adres')}
     = f.text_field :adress
   .field
-    p.mb-0.mt-2 Godziny otwarcia
+    p.mb-0.mt-2 #{t('workinghoures')}
     = f.text_field :workinghoures
   .field
-    p.mb-0.mt-2 Menu numer
+    p.mb-0.mt-2 #{t('menu')}
     = f.select :menu_id, Menu.all.map { |m| m.id }
   .actions 
-    = f.submit "Zapisz", class: "btn btn-danger"
+    = link_to t("back"), root_path, class: "btn btn-success"
+    = f.submit t("save"), class: "btn btn-danger"

@@ -5,11 +5,6 @@ class PizzahousesControllerTest < ActionDispatch::IntegrationTest
     @pizzahouse = pizzahouses(:one)
   end
 
-  test "should get index" do
-    get pizzahouses_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_pizzahouse_url
     assert_response :success
@@ -17,7 +12,10 @@ class PizzahousesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pizzahouse" do
     assert_difference('Pizzahouse.count') do
-      post pizzahouses_url, params: { pizzahouse: { adress: @pizzahouse.adress, close_at: @pizzahouse.close_at, name: @pizzahouse.name, start_at: @pizzahouse.start_at } }
+      post pizzahouses_url, params: { pizzahouse: { adress: 'test',
+                                                    workinghoures: 'test',
+                                                    name: 'testing',
+                                                    menu_id: Menu.last.id } }
     end
 
     assert_redirected_to pizzahouse_url(Pizzahouse.last)
@@ -34,7 +32,11 @@ class PizzahousesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pizzahouse" do
-    patch pizzahouse_url(@pizzahouse), params: { pizzahouse: { adress: @pizzahouse.adress, close_at: @pizzahouse.close_at, name: @pizzahouse.name, start_at: @pizzahouse.start_at } }
+    patch pizzahouse_url(@pizzahouse),
+          params: { pizzahouse: { adress: @pizzahouse.adress,
+                                  workinghoures: @pizzahouse.workinghoures,
+                                  name: @pizzahouse.name,
+                                  menu_id: @pizzahouse.menu_id } }
     assert_redirected_to pizzahouse_url(@pizzahouse)
   end
 
@@ -43,6 +45,6 @@ class PizzahousesControllerTest < ActionDispatch::IntegrationTest
       delete pizzahouse_url(@pizzahouse)
     end
 
-    assert_redirected_to pizzahouses_url
+    assert_redirected_to root_path
   end
 end

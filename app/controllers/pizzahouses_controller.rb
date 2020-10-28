@@ -1,9 +1,5 @@
 class PizzahousesController < ApplicationController
-  before_action :set_pizzahouse, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @pizzahouses = Pizzahouse.all
-  end
+  before_action :set_pizzahouse, only: %i[show edit update destroy]
 
   def show
     @pizzas = (@pizzahouse&.menu&.pizzas || [])
@@ -13,8 +9,7 @@ class PizzahousesController < ApplicationController
     @pizzahouse = Pizzahouse.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @pizzahouse = Pizzahouse.new(pizzahouse_params)
@@ -22,7 +17,7 @@ class PizzahousesController < ApplicationController
     if @pizzahouse.save
       redirect_to @pizzahouse
     else
-      render :new 
+      render :new
     end
   end
 
@@ -30,7 +25,7 @@ class PizzahousesController < ApplicationController
     if @pizzahouse.update(pizzahouse_params)
       redirect_to @pizzahouse
     else
-      render :edit 
+      render :edit
     end
   end
 
@@ -40,11 +35,12 @@ class PizzahousesController < ApplicationController
   end
 
   private
-    def set_pizzahouse
-      @pizzahouse = Pizzahouse.find(params[:id])
-    end
 
-    def pizzahouse_params
-      params.require(:pizzahouse).permit(:name, :adress, :workinghoures, :menu_id)
-    end
+  def set_pizzahouse
+    @pizzahouse = Pizzahouse.find(params[:id])
+  end
+
+  def pizzahouse_params
+    params.require(:pizzahouse).permit(:name, :adress, :workinghoures, :menu_id)
+  end
 end

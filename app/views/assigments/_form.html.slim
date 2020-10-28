@@ -5,5 +5,5 @@
       = f.label :pizza_id
       = f.select :pizza_id, @pizzas
     .actions 
-      = link_to "Utwórz przepis", new_pizza_path(menu_id: @menu), class: "btn btn-success"
-      = f.submit "Dodaj", class: "btn btn-danger", disabled: @pizzas.empty?
+      = link_to t('new_recipe'), new_pizza_path(menu_id: @menu), class: "btn btn-success"
+      = f.submit t('add'), class: "btn btn-danger", disabled: @pizzas.empty?

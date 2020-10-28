@@ -3,11 +3,6 @@
 one:
   name: MyString
   adress: MyString
-  start_at: 2020-10-26 18:36:23
-  close_at: 2020-10-26 18:36:23
+  workinghoures: MyString
+  menu_id: 1
 
-two:
-  name: MyString
-  adress: MyString
-  start_at: 2020-10-26 18:36:23
-  close_at: 2020-10-26 18:36:23

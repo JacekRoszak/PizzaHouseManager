@@ -1,25 +1,18 @@
 class PizzasController < ApplicationController
-  before_action :set_pizza, only: [:show, :edit, :update, :destroy]
+  before_action :set_pizza, only: %i[edit update destroy]
 
   def index
     @pizzas = Pizza.all
   end
 
-  def show
-  end
-
   def new
     @pizza = Pizza.new
-    if params[:menu_id]
-      @menu = params[:menu_id]
-    end
+    @menu = params[:menu_id]
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
-    
     @pizza = Pizza.new
     @pizza.name = pizza_params[:name]
     @pizza.price = pizza_params[:price]
@@ -28,7 +21,7 @@ class PizzasController < ApplicationController
     if @pizza.save
       redirect_to assigments_url(menu_id: pizza_params[:menu_id])
     else
-      render :new 
+      render :new
     end
   end
 
@@ -36,7 +29,7 @@ class PizzasController < ApplicationController
     if @pizza.update(pizza_params)
       redirect_to @pizza
     else
-      render :edit 
+      render :edit
     end
   end
 
@@ -46,11 +39,12 @@ class PizzasController < ApplicationController
   end
 
   private
-    def set_pizza
-      @pizza = Pizza.find(params[:id])
-    end
 
-    def pizza_params
-      params.require(:pizza).permit(:name, :price, :recipe, :menu_id)
-    end
+  def set_pizza
+    @pizza = Pizza.find(params[:id])
+  end
+
+  def pizza_params
+    params.require(:pizza).permit(:name, :price, :recipe, :menu_id)
+  end
 end

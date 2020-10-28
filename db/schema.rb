@@ -10,46 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_28_083135) do
+ActiveRecord::Schema.define(version: 2020_10_26_223048) do
 
-  create_table "assigments", force: :cascade do |t|
-    t.integer "pizza_id"
-    t.integer "menu_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'assigments', force: :cascade do |t|
+    t.integer 'pizza_id'
+    t.integer 'menu_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "menus", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
+  create_table 'menus', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "pizzahouses", force: :cascade do |t|
-    t.string "name"
-    t.string "adress"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "workinghoures", default: "11:00 - 23:00"
-    t.integer "menu_id"
+  create_table 'pizzahouses', force: :cascade do |t|
+    t.string 'name'
+    t.string 'adress'
+    t.integer 'menu_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'workinghoures', default: '11:00 - 23:00'
   end
 
-  create_table "pizzas", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
-    t.string "recipe"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'pizzas', force: :cascade do |t|
+    t.string 'name'
+    t.integer 'price'
+    t.string 'recipe'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.datetime "remember_created_at"
-    t.boolean "admin", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.datetime 'remember_created_at'
+    t.boolean 'admin', default: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
-
 end

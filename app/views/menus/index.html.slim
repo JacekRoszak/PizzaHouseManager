@@ -1,19 +1,13 @@
 .text-center.mt-5
-  h1 Lista menu
-
+  h1 #{t('menu_list')}
   - @menus.each do |menu|
     h4.mb-0
-      | Menu #{menu.name}
-      = link_to 'Edytuj', assigments_path(menu_id: menu.id), class: "btn btn-danger ml-3"
+      | #{ t('menu') + " " + menu.name}
+      = link_to t('edit'), assigments_path(menu_id: menu.id), class: "btn btn-danger ml-3"
     h6.mb-3   
       - menu.pizzas.each do |pizza|
         | "#{pizza.name}" 
-
-    
-
   br
-
-  = link_to 'Nowe menu', new_menu_path, class: "btn btn-danger"
-  = link_to 'Powrót', root_path, class: "btn btn-danger"
-
-      / = link_to 'Usuń', menu, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+  = link_to t("back"), root_path, class: "btn btn-success"
+  = link_to t('new_menu'), new_menu_path, class: "btn btn-danger"
+  = link_to t('pizzas_list'), pizzas_path, class: "btn btn-warning"

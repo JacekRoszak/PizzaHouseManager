@@ -1,6 +1,5 @@
 .container.text-center.mt-5
-    h3 Gdzie nas znajdziesz:
-        
+    h3 #{t('where_to_find')}:
     br/
     - @pizzahouses.each do |pizzahouse|
         = link_to pizzahouse do
@@ -8,14 +7,14 @@
                 .d-inline-block.p-3    
                     strong "#{pizzahouse.name}" 
                 .d-inline-block.p-3
-                    |  adres: #{pizzahouse.adress}
+                    |  #{t('adress')}: #{pizzahouse.adress}
                 .d-inline-block.p-3    
-                    | czynne: #{pizzahouse.workinghoures}
+                    | #{t('workinghoures')}: #{pizzahouse.workinghoures}
                 br/
     br/
     - unless current_user
-        = link_to "Zaloguj się", new_user_session_path, class: "btn btn-danger ml-4"
+        = link_to t('log_in'), new_user_session_path, class: "btn btn-danger ml-4"
     - else
-        = link_to "Dodaj restaurację", new_pizzahouse_path, class: "btn btn-success ml-4"
-        = link_to "Zarządzaj menu", menus_path, class: "btn btn-success ml-4"
-        = link_to "Wyloguj się", root_path(logout: true), class: "btn btn-danger ml-4"
+        = link_to t('add_pizzahouse'), new_pizzahouse_path, class: "btn btn-success ml-4"
+        = link_to t('edit_menu'), menus_path, class: "btn btn-success ml-4"
+        = link_to t('log_out'), root_path(logout: true), class: "btn btn-danger ml-4"

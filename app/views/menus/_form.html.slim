@@ -1,7 +1,7 @@
 = form_for @menu do |f|
   .field
-    p.mb-0 Nazwa:
+    p.mb-0 #{t('name')}:
     = f.text_field :name
   .actions 
-    = link_to 'Powrót', menus_path, class: "btn btn-success mt-3"
-    = f.submit "Zapisz", class: "btn btn-danger mt-3"
+    = link_to t('back'), menus_path, class: "btn btn-success mt-3"
+    = f.submit t('save'), class: "btn btn-danger mt-3"

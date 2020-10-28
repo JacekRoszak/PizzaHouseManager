@@ -17,10 +17,10 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pizza" do
     assert_difference('Pizza.count') do
-      post pizzas_url, params: { pizza: { name: @pizza.name, price: @pizza.price, recipe: @pizza.recipe } }
+      post pizzas_url, params: { pizza: { name: @pizza.name, price: @pizza.price, recipe: @pizza.recipe, menu_id: Menu.last&.id } }
     end
 
-    assert_redirected_to pizza_url(Pizza.last)
+    assert_redirected_to assigments_url(menu_id: Menu.last.id)
   end
 
   test "should show pizza" do

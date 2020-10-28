@@ -17,15 +17,10 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
 
   test "should create menu" do
     assert_difference('Menu.count') do
-      post menus_url, params: { menu: { pizzahouse_id: @menu.pizzahouse_id } }
+      post menus_url, params: { menu: { name: @menu.name } }
     end
 
-    assert_redirected_to menu_url(Menu.last)
-  end
-
-  test "should show menu" do
-    get menu_url(@menu)
-    assert_response :success
+    assert_redirected_to assigments_path(menu_id: @menu.id+1)
   end
 
   test "should get edit" do
@@ -34,8 +29,8 @@ class MenusControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update menu" do
-    patch menu_url(@menu), params: { menu: { pizzahouse_id: @menu.pizzahouse_id } }
-    assert_redirected_to menu_url(@menu)
+    patch menu_url(@menu), params: { menu: { name: @menu.name } }
+    assert_redirected_to menus_path
   end
 
   test "should destroy menu" do

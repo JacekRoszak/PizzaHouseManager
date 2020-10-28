@@ -1,11 +1,9 @@
 class MenusController < ApplicationController
-  before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_action :set_menu, only: %i[edit update destroy]
 
   def index
     @menus = Menu.all
   end
-
-  def show; end
 
   def new
     @menu = Menu.new
@@ -25,9 +23,9 @@ class MenusController < ApplicationController
 
   def update
     if @menu.update(menu_params)
-      fredirect_to @menu
+      redirect_to menus_path
     else
-      render :edit 
+      render :edit
     end
   end
 

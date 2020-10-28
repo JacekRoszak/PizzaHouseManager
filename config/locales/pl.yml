@@ -1,0 +1,60 @@
+pl:
+
+  # HOME PAGE
+  wellcome_text: 'Witamy w sieci pizzerii Consigliere'
+  wellcome_text2: 'U nas zjesz prawdziwą sycilijską pizzę'
+  where_to_find: 'Gdzie nas znajdziesz'
+  adress: 'Adres'
+  workinghoures: 'Godziny otwarcia'
+
+  
+  # ASSIGMENTS
+  new_menu_item: 'Nowa pozycja menu'
+  
+  # DEVISE
+  log_in: "Zaloguj się"
+
+  # MENUS
+  name: "Nazwa"
+  edit_menu: "Edycja menu"
+  menu_list: "Lista menu"
+  menu: "Menu"
+  new_menu: "Nowe menu"
+  currency: 'zł'
+
+  # PIZZAHOUSE
+  edit_pizzahouse: 'Edycja restauracji'
+  pizzahouse: 'Restauracja'
+  no_menu_assigned: '- brak przypisanego menu'
+  error_message: 'Błąd nazwy!'
+
+  # PIZZA
+  price: "Cena"
+  recipe: "Przepis"
+  edit_pizza: "Edycja pizzy"
+  pizza_list: "Lista przepisów"
+  new_pizza: "Nowa pizza"
+
+
+  # BUTTONS
+  save: "Zapisz"
+  add: "Dodaj"
+  back: "Powrót"
+  destroy: "Usuń"
+  edit: "Edytuj"
+  edit_name: 'Zmień nazwę'
+
+  confirmation: "Czy na pewno?"
+
+  pizzas_list: 'Lista przepisów'
+  new_pizza: 'Nowa Pizza'
+  new_recipe: "Utwórz przepis"
+
+  new_menu: 'Nowe menu'
+  edit_menu: "Zarządzaj menu"
+
+  add_pizzahouse: 'Dodaj restaurację'
+  destroy_pizzahouse: 'Usuń restaurację'
+
+  log_out: "Wyloguj się"
+  home_page: 'Strona główna'

@@ -1,13 +1,14 @@
 = form_for @pizza do |f|
   = f.hidden_field :menu_id, value: @menu
   .field
-    p.mb-0.mt-3 Nazwa
+    p.mb-0.mt-3 #{t('name')}
     = f.text_field :name
   .field
-    p.mb-0.mt-3 Cena
+    p.mb-0.mt-3 #{t('price')}
     = f.number_field :price
   .field
-    p.mb-0.mt-3 Przepis
+    p.mb-0.mt-3 #{t('recipe')}
     = f.text_field :recipe
   .actions 
-    = f.submit "Zapisz", class: "btn btn-danger mt-3"
+    = link_to t("add"), pizzas_path, class: "btn btn-success mt-3"
+    = f.submit t('save'), class: "btn btn-danger mt-3"

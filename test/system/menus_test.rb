@@ -14,7 +14,7 @@ class MenusTest < ApplicationSystemTestCase
     visit menus_url
     click_on "New Menu"
 
-    fill_in "Pizzahouse", with: @menu.pizzahouse_id
+    fill_in "Pizzahouse", with: @menu.name
     click_on "Create Menu"
 
     assert_text "Menu was successfully created"
@@ -25,7 +25,7 @@ class MenusTest < ApplicationSystemTestCase
     visit menus_url
     click_on "Edit", match: :first
 
-    fill_in "Pizzahouse", with: @menu.pizzahouse_id
+    fill_in "Pizzahouse", with: @menu.name
     click_on "Update Menu"
 
     assert_text "Menu was successfully updated"
