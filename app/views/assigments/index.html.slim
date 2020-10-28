@@ -1,6 +1,6 @@
 .text-center.mt-5
   h3.mb-4.underline
-    | Edycja menu 
+    | Menu #{@menu.name}
 
   table.mx-auto
     tbody
@@ -8,9 +8,10 @@
         tr
           td 
             h4 = assigment.pizza.name
-          td = link_to 'Usuń', assigment_path(menu_id: @menu.id, :id => assigment.id), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-danger"
+          td = link_to 'Usuń', assigment_path(menu_id: @menu.id, :id => assigment.id), data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-warning"
 
   br
 
-  = link_to 'Dodaj pizzę', new_assigment_path(menu_id: @menu.id), class: "btn btn-success"
   = link_to 'Powrót', root_path, class: "btn btn-danger"
+  = link_to 'Dodaj pizzę', new_assigment_path(menu_id: @menu.id), class: "btn btn-success"
+  = link_to 'Usuń', @menu, data: { confirm: 'Are you sure?' }, method: :delete, class: "btn btn-warning"

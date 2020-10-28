@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_223048) do
+ActiveRecord::Schema.define(version: 2020_10_28_083135) do
 
   create_table "assigments", force: :cascade do |t|
     t.integer "pizza_id"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2020_10_26_223048) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.integer "pizzahouse_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
   end
 
   create_table "pizzahouses", force: :cascade do |t|

@@ -6,6 +6,7 @@ class PizzahousesController < ApplicationController
   end
 
   def show
+    @pizzas = (@pizzahouse&.menu&.pizzas || [])
   end
 
   def new
@@ -34,7 +35,6 @@ class PizzahousesController < ApplicationController
   end
 
   def destroy
-    @pizzahouse.menu.pizzahouse_id = nil
     @pizzahouse.destroy
     redirect_to root_path
   end

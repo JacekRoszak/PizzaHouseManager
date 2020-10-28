@@ -4,11 +4,6 @@
       = f.hidden_field :menu_id, value: @menu    
       = f.label :pizza_id
       = f.select :pizza_id, @pizzas
-    .field
-      - if @assigment.menu.pizzahouse
-        = f.label "Menu dla:"
-        h4 
-          strong "#{@assigment.menu.pizzahouse.name}"
     .actions 
-      = f.submit "Dodaj", class: "btn btn-danger"
-      = link_to "Nowy przepis", new_pizza_path(menu_id: @menu), class: "btn btn-success"
+      = link_to "Utwórz przepis", new_pizza_path(menu_id: @menu), class: "btn btn-success"
+      = f.submit "Dodaj", class: "btn btn-danger", disabled: @pizzas.empty?

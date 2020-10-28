@@ -7,16 +7,16 @@
           li = message
 
   .field
-    = f.label "Nazwa"
+    p.mb-0.mt-2 Nazwa
     = f.text_field :name
   .field
-    = f.label "Adres"
+    p.mb-0.mt-2 Adres
     = f.text_field :adress
   .field
-    = f.label "Godziny otwarcia"
+    p.mb-0.mt-2 Godziny otwarcia
     = f.text_field :workinghoures
   .field
-    = f.label :menu_id
+    p.mb-0.mt-2 Menu numer
     = f.select :menu_id, Menu.all.map { |m| m.id }
   .actions 
     = f.submit "Zapisz", class: "btn btn-danger"

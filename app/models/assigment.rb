@@ -1,7 +1,6 @@
 class Assigment < ApplicationRecord
-    belongs_to :menu, optional: true
-    belongs_to :pizza, optional: true
+  belongs_to :menu
+  belongs_to :pizza
 
-    delegate :pizzahouse, to: :menu
-
+  delegate :pizzahouses, to: :menu
 end

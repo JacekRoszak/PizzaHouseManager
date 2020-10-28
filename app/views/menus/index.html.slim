@@ -3,7 +3,7 @@
 
   - @menus.each do |menu|
     h4.mb-0
-      | Menu numer: #{menu.id}
+      | Menu #{menu.name}
       = link_to 'Edytuj', assigments_path(menu_id: menu.id), class: "btn btn-danger ml-3"
     h6.mb-3   
       - menu.pizzas.each do |pizza|

@@ -1,5 +1,7 @@
 = form_for @menu do |f|
   .field
-    = f.label :pizzahouse_id
-    = f.number_field :pizzahouse_id
-  .actions = f.submit
+    p.mb-0 Nazwa:
+    = f.text_field :name
+  .actions 
+    = link_to 'Powrót', menus_path, class: "btn btn-success mt-3"
+    = f.submit "Zapisz", class: "btn btn-danger mt-3"
