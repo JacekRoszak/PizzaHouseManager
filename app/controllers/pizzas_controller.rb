@@ -20,7 +20,7 @@ class PizzasController < ApplicationController
     @pizza.recipe = pizza_params[:recipe]
 
     if @pizza.save
-      redirect_to assigments_url(menu_id: params[:menu_id])
+      redirect_to pizzas_url
     else
       render :new
     end
@@ -28,7 +28,7 @@ class PizzasController < ApplicationController
 
   def update
     if @pizza.update(pizza_params)
-      redirect_to @pizza
+      redirect_to pizzas_path
     else
       render :edit
     end
