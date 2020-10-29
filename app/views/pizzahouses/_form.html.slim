@@ -17,3 +17,4 @@
   .actions 
     = link_to t("back"), root_path, class: "btn btn-success"
     = f.submit t("save"), class: "btn btn-danger"
+    = link_to t('destroy_pizzahouse'), @pizzahouse, data: { confirm: t('confirmation') }, method: :delete, class: "btn btn-danger"

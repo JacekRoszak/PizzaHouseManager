@@ -34,7 +34,7 @@ pl:
   edit_pizza: "Edycja pizzy"
   pizza_list: "Lista przepisów"
   new_pizza: "Nowa pizza"
-
+  add_pizza: "Dodaj pizzę"
 
   # BUTTONS
   save: "Zapisz"

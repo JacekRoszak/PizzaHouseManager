@@ -1,4 +1,5 @@
 class PizzahousesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_pizzahouse, only: %i[show edit update destroy]
 
   def show

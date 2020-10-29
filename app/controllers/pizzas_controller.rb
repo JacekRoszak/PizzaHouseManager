@@ -1,4 +1,5 @@
 class PizzasController < ApplicationController
+  load_and_authorize_resource
   before_action :set_pizza, only: %i[edit update destroy]
 
   def index
@@ -19,7 +20,7 @@ class PizzasController < ApplicationController
     @pizza.recipe = pizza_params[:recipe]
 
     if @pizza.save
-      redirect_to assigments_url(menu_id: pizza_params[:menu_id])
+      redirect_to assigments_url(menu_id: params[:menu_id])
     else
       render :new
     end
@@ -45,6 +46,6 @@ class PizzasController < ApplicationController
   end
 
   def pizza_params
-    params.require(:pizza).permit(:name, :price, :recipe, :menu_id)
+    params.require(:pizza).permit(:name, :price, :recipe)
   end
 end
