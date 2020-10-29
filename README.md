@@ -1,7 +1,7 @@
 # README
 
 PizzahouseManager is an application for managing a network of pizzahouses and it's menus. It's writen in Ruby ('2.7.1') on Rails. 
-I've used Devise gem for Users and Cancancan gem for loading and authorization of resource. I use Slim for making the code easier to read.
+I've used Devise gem for Users. I use Slim for making the code easier to read.
 
 There is an example data prepare in db/seeds.rb which you can use. 
 `$ rake db:seed`

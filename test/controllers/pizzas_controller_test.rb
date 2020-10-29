@@ -20,12 +20,7 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
       post pizzas_url, params: { pizza: { name: @pizza.name, price: @pizza.price, recipe: @pizza.recipe, menu_id: Menu.last&.id } }
     end
 
-    assert_redirected_to assigments_url(menu_id: Menu.last.id)
-  end
-
-  test "should show pizza" do
-    get pizza_url(@pizza)
-    assert_response :success
+    assert_redirected_to pizzas_path
   end
 
   test "should get edit" do
@@ -35,7 +30,7 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
 
   test "should update pizza" do
     patch pizza_url(@pizza), params: { pizza: { name: @pizza.name, price: @pizza.price, recipe: @pizza.recipe } }
-    assert_redirected_to pizza_url(@pizza)
+    assert_redirected_to pizzas_path
   end
 
   test "should destroy pizza" do
@@ -43,6 +38,6 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
       delete pizza_url(@pizza)
     end
 
-    assert_redirected_to pizzas_url
+    assert_redirected_to pizzas_path
   end
 end

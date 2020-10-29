@@ -1,5 +1,4 @@
 class PizzasController < ApplicationController
-  load_and_authorize_resource
   before_action :set_pizza, only: %i[edit update destroy]
 
   def index
