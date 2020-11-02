@@ -58,3 +58,11 @@ pl:
 
   log_out: "Wyloguj się"
   home_page: 'Strona główna'
+
+  activerecord:
+    errors:
+      models:
+        pizzahouse:
+          attributes:
+            name:
+              blank: "Nie może być puste"
