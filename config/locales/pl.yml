@@ -59,10 +59,25 @@ pl:
   log_out: "Wyloguj się"
   home_page: 'Strona główna'
 
+
+  # ERRORS
+
+  create_action_errors_message: 'Nie powiodło się:'
   activerecord:
     errors:
       models:
         pizzahouse:
           attributes:
             name:
-              blank: "Nie może być puste"
+              blank: 'Musi mieć nazwę'
+        pizza:
+          attributes:
+            name:
+              blank: 'Musi mieć nazwę'
+              taken: 'Nazwa nie może się powtarzać'
+            recipe:
+              blank: 'Musi mieć przepis'
+              taken: 'Przeps nie może się powtarzać'
+            price:
+              blank: 'Musi mieć cenę'
+              

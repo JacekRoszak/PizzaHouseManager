@@ -1,4 +1,9 @@
 = form_for @pizza do |f|
+  - if @pizza.errors.any?
+    #error_explanation.text-center.text-danger
+      h4 = t('create_action_errors_message')
+      - @pizza.errors.full_messages.each do |message|
+        p.p-0.m-0 = message.split(' ')[1..-1].join(' ')
   = f.hidden_field :menu_id, value: @menu
   .field
     p.mb-0.mt-3 #{t('name')}

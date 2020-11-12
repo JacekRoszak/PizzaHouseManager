@@ -5,6 +5,7 @@ class Pizzahouse < ApplicationRecord
   has_many :assigments, through: :menu
   has_many :pizzas, through: :assigments, source: :pizza
 
-  # Restauracja musi mieć unikatową nazwę
   validates :name, uniqueness: true, presence: true
+  validates :adress, uniqueness: true, presence: true
+  validates :workinghoures, presence: true
 end

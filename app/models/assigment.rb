@@ -5,3 +5,5 @@ class Assigment < ApplicationRecord
 
   delegate :pizzahouses, to: :menu
 end
+
+# robisz dalej modele,pizzahouse i pizza skończyłeś
